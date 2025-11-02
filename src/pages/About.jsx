@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
 import { Heart, ShoppingBag, Star } from "lucide-react";
 import WhyAmber from "../components/WhyAmber"; // ✅ reuse your existing section
-import aboutImg from "../assets/notnow.png"; // 🖼️ replace with your image path
+import aboutImg from "../assets/optimized/notnow.webp"; // 🆕 optimized image import
 
 export default function About() {
   return (

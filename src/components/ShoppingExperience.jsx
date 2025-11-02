@@ -2,14 +2,16 @@ import { useEffect, useRef, useState } from "react";
 import { motion, useInView } from "framer-motion";
 
 // 🛒 Product images (replace with your actual file paths)
-import fruits from "../assets/fruits.jpg";
-import fish from "../assets/fish.jpg";
-import dairy from "../assets/dairy.jpg";
-import spices from "../assets/spices.jpg";
-import bakery from "../assets/bakery.jpg";
-import beverages from "../assets/beverages.jpg";
-import cleaning from "../assets/cleaning.jpg"; // 🆕 new
-import snacks from "../assets/snacks.jpg";     // 🆕 new
+
+
+import fruits from "../assets/optimized/fruits.webp";
+import fish from "../assets/optimized/fish.webp";
+import dairy from "../assets/optimized/dairy.webp";
+import spices from "../assets/optimized/spices.webp";
+import bakery from "../assets/optimized/bakery.webp";
+import beverages from "../assets/optimized/beverages.webp";
+import cleaning from "../assets/optimized/cleaning.webp";
+import snacks from "../assets/optimized/snacks.webp";
 
 const products = [
   { image: fruits, name: "Fresh Fruits & Vegetables" },

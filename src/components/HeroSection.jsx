@@ -1,8 +1,9 @@
-import { useEffect, useState } from "react";
-import img1 from "../assets/img1.png";
-import img2 from "../assets/img2.png";
-import img3 from "../assets/img3.png";
-import img4 from "../assets/img4.png";
+
+import img1 from "../assets/optimized/img1.webp";
+import img2 from "../assets/optimized/img2.webp";
+import img3 from "../assets/optimized/img3.webp";
+import img4 from "../assets/optimized/img4.webp";
+import React, { useState, useEffect } from "react";
 
 
 

@@ -2,11 +2,12 @@
 @tailwind components;
 @tailwind utilities;
 
-
+/* 🧠 Global font */
 body {
   font-family: 'Poppins', sans-serif;
 }
 
+/* 🎞️ Smooth fade-in and slide-up animations (used in hero text) */
 @keyframes fade-in {
   from { opacity: 0; transform: translateY(10px); }
   to { opacity: 1; transform: translateY(0); }
@@ -24,13 +25,21 @@ body {
 .animate-slide-up {
   animation: slide-up 1.2s ease-in-out forwards;
 }
-.animate-fadeInUp {
-  animation: fadeInUp 1s ease-out;
-}
-.fade-up {
-  animation: fadeUp 1s ease forwards;
-}
 
-.delay-200 {
-  animation-delay: 0.2s;
+/* 🔥 Navbar Instant Fix — Only for Mobile Screens */
+@media (max-width: 768px) {
+  html, body {
+    scroll-behavior: smooth;
+    overscroll-behavior-y: none;
+  }
+
+  nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    opacity: 1 !important;
+    transition: none !important; /* ⚡ removes load delay */
+    z-index: 9999;
+  }
 }

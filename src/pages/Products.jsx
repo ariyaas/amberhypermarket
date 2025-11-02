@@ -1,13 +1,13 @@
 import { motion } from "framer-motion";
-import fruits from "../assets/fruits.jpg";
-import fish from "../assets/fish.jpg";
-import dairy from "../assets/dairy.jpg";
-import spices from "../assets/spices.jpg";
-import bakery from "../assets/bakery.jpg";
-import beverages from "../assets/beverages.jpg";
-import cleaning from "../assets/cleaning.jpg";
-import snacks from "../assets/snacks.jpg";
 
+import fruits from "../assets/optimized/fruits.webp";
+import fish from "../assets/optimized/fish.webp";
+import dairy from "../assets/optimized/dairy.webp";
+// import spices from "../assets/optimized/spices.webp";
+import bakery from "../assets/optimized/bakery.webp";
+import beverages from "../assets/optimized/beverages.webp";
+import cleaning from "../assets/optimized/cleaning.webp";
+// import snacks from "../assets/optimized/snacks.webp";
 export default function Products() {
   const products = [
     {
