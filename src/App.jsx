@@ -4,7 +4,7 @@ import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import FooterMini from "./components/FooterMini";
 
-// 💡 Lazy-load all heavy pages
+// ✅ Lazy-load only heavy pages
 const Home = lazy(() => import("./pages/Home"));
 const About = lazy(() => import("./pages/About"));
 const Products = lazy(() => import("./pages/Products"));
@@ -14,9 +14,11 @@ const Contact = lazy(() => import("./pages/Contact"));
 function App() {
   return (
     <>
+      {/* ✅ Navbar loads instantly (not lazy) */}
       <Navbar />
-      <div className="pt-20">
-        {/* ✅ Wrap Routes inside Suspense */}
+
+      {/* ✅ Lazy-load only the routes */}
+      <main className="pt-20 min-h-screen">
         <Suspense
           fallback={
             <div className="flex justify-center items-center h-screen">
@@ -32,9 +34,10 @@ function App() {
             <Route path="/contact" element={<Contact />} />
           </Routes>
         </Suspense>
-      </div>
+      </main>
+
+      {/* ✅ These load instantly and stay visible */}
       <Footer />
-       {/* Show mini footer only on mobile */}
       <div className="md:hidden">
         <FooterMini />
       </div>
