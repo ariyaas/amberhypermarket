@@ -26,6 +26,7 @@ function App() {
             </div>
           }
         >
+          
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/products" element={<Products />} />
@@ -38,6 +39,8 @@ function App() {
 
       {/* ✅ These load instantly and stay visible */}
       <Footer />
+
+      
       <div className="md:hidden">
         <FooterMini />
       </div>

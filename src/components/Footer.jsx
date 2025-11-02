@@ -12,17 +12,17 @@ export default function Footer() {
             Ambe<span className="text-yellow-400">r</span>
           </h1>
           <p className="text-sm text-gray-400 mb-4 leading-relaxed">
-            Amber Group, P.O Box: 30625, Sharjah - UAE
+            Amber Group, AlMazaz 2 building, Sharjah - UAE
           </p>
           <div className="space-y-2 text-sm">
             <p className="flex items-center gap-2">
-              <Phone size={16} /> 00971 65366000
+              <Phone size={16} /> +97154269808
             </p>
             <p className="flex items-center gap-2">
-              <MapPin size={16} /> 00971 65567577
+              <MapPin size={16} /> 8111040090
             </p>
             <p className="flex items-center gap-2">
-              <Mail size={16} /> info@amberuae.com
+              <Mail size={16} /> hamzakallum@gmail.com
             </p>
           </div>
 

@@ -1,32 +1,30 @@
 import { motion } from "framer-motion";
 import { Mail, Phone, MapPin } from "lucide-react";
-// import emailjs from "emailjs-com";
-import { useRef } from "react";
+import { useRef, useState } from "react";
 
 export default function Contact() {
   const form = useRef();
+  const [result, setResult] = useState("");
 
-  // ✅ Handle form submission
-  const sendEmail = (e) => {
+  // ✅ Handle form submission using Web3Forms
+  const sendEmail = async (e) => {
     e.preventDefault();
+    setResult("Sending...");
 
-    emailjs
-      .sendForm(
-        "YOUR_SERVICE_ID", // 🔹 Replace with your EmailJS Service ID
-        "YOUR_TEMPLATE_ID", // 🔹 Replace with your EmailJS Template ID
-        form.current,
-        "YOUR_PUBLIC_KEY"   // 🔹 Replace with your EmailJS Public Key
-      )
-      .then(
-        (result) => {
-          alert("✅ Message Sent Successfully!");
-          form.current.reset();
-        },
-        (error) => {
-          console.log(error.text);
-          alert("❌ Something went wrong, please try again!");
-        }
-      );
+    const formData = new FormData(form.current);
+    formData.append("access_key", "885ce92f-7c93-4bbd-ba6e-5d97fb3c1662"); // ✅ Your Web3Forms key
+
+    const response = await fetch("https://api.web3forms.com/submit", {
+      method: "POST",
+      body: formData,
+    });
+
+    if (response.ok) {
+      setResult("✅ Message Sent Successfully!");
+      form.current.reset();
+    } else {
+      setResult("❌ Something went wrong. Please try again!");
+    }
   };
 
   return (
@@ -54,7 +52,7 @@ export default function Contact() {
         >
           <Phone className="mx-auto text-yellow-500 w-8 h-8 mb-3" />
           <h3 className="font-semibold text-lg text-gray-800">Phone</h3>
-          <p className="text-gray-600 mt-2">+971 65366000</p>
+          <p className="text-gray-600 mt-2">+97154269808</p>
         </motion.div>
 
         <motion.div
@@ -63,7 +61,7 @@ export default function Contact() {
         >
           <Mail className="mx-auto text-yellow-500 w-8 h-8 mb-3" />
           <h3 className="font-semibold text-lg text-gray-800">Email</h3>
-          <p className="text-gray-600 mt-2">info@amberuae.com</p>
+          <p className="text-gray-600 mt-2">hamzakallum@gmail.com</p>
         </motion.div>
 
         <motion.div
@@ -72,7 +70,7 @@ export default function Contact() {
         >
           <MapPin className="mx-auto text-yellow-500 w-8 h-8 mb-3" />
           <h3 className="font-semibold text-lg text-gray-800">Address</h3>
-          <p className="text-gray-600 mt-2">Amber Group, Sharjah - UAE</p>
+          <p className="text-gray-600 mt-2">AlMazaz 2 building, Sharjah - UAE</p>
         </motion.div>
       </div>
 
@@ -89,14 +87,14 @@ export default function Contact() {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           <input
             type="text"
-            name="user_name"
+            name="name"
             placeholder="Your Name"
             required
             className="p-3 border border-gray-300 rounded-lg focus:outline-none focus:border-yellow-400"
           />
           <input
             type="email"
-            name="user_email"
+            name="email"
             placeholder="Your Email"
             required
             className="p-3 border border-gray-300 rounded-lg focus:outline-none focus:border-yellow-400"
@@ -116,6 +114,11 @@ export default function Contact() {
         >
           Send Message
         </button>
+
+        {/* ✅ Success or error message display */}
+        {result && (
+          <p className="text-center mt-4 text-gray-700 font-medium">{result}</p>
+        )}
       </motion.form>
 
       {/* 🗺️ Google Map */}
